@@ -44,7 +44,7 @@ export const Projects: React.FC = () => {
       </div>
 
       {/* Main Project: CyberSim */}
-      <div style={{ display: 'grid', gridTemplateColumns: '7fr 5fr', gap: '30px', margin: '40px 0' }}>
+      <div className="grid-cyber-split">
         {/* Large CyberSim Description */}
         <div className="glass-panel" style={{ padding: '30px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
           <div>
@@ -198,17 +198,6 @@ export const Projects: React.FC = () => {
           })}
         </div>
       </div>
-      
-      {/* Embedded Mobile CSS */}
-      <style>{`
-        @media (max-width: 900px) {
-          div[style*="gridTemplateColumns: 7fr 5fr"] {
-            grid-template-columns: 1fr !important;
-            display: flex !important;
-            flex-direction: column !important;
-          }
-        }
-      `}</style>
     </div>
   );
 };

@@ -327,16 +327,16 @@ export const SkillsCertificates: React.FC = () => {
 
             {/* Tech Details Column */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', background: 'rgba(255,255,255,0.02)', padding: '20px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.05)', marginBottom: '24px' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px' }}>
+              <div className="modal-row-cyber" style={{ fontSize: '13px' }}>
                 <span style={{ color: 'var(--text-muted)' }}>CREDENTIAL ID:</span>
                 <span style={{ fontFamily: 'var(--font-mono)', color: selectedCert.color, fontWeight: 600 }}>{selectedCert.certId}</span>
               </div>
-              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px' }}>
+              <div className="modal-row-cyber" style={{ fontSize: '13px' }}>
                 <span style={{ color: 'var(--text-muted)' }}>ISSUE DATE:</span>
                 <span style={{ color: '#fff' }}>{selectedCert.date}</span>
               </div>
               {selectedCert.grade && (
-                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px' }}>
+                <div className="modal-row-cyber" style={{ fontSize: '13px' }}>
                   <span style={{ color: 'var(--text-muted)' }}>ASSESSMENT GRADE:</span>
                   <span style={{ color: 'var(--color-secondary)', fontWeight: 700 }}>{selectedCert.grade}</span>
                 </div>

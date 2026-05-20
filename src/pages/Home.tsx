@@ -100,7 +100,7 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab }) => {
             </div>
             <h2 style={{ color: '#fff', fontSize: '28px', marginTop: '16px' }}>Personnel Credentials</h2>
             
-            <div style={{ marginTop: '20px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+            <div className="grid-cyber-sub" style={{ marginTop: '20px', gap: '16px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <MapPin size={18} style={{ color: 'var(--color-primary)' }} />
                 <span style={{ fontSize: '15px' }}>Kottayam, Kerala, India</span>
@@ -109,7 +109,7 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab }) => {
                 <Globe size={18} style={{ color: 'var(--color-secondary)' }} />
                 <span style={{ fontSize: '15px' }}>CEP (IHRD) Student</span>
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', gridColumn: 'span 2' }}>
+              <div className="dossier-email" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <Mail size={18} style={{ color: 'var(--color-accent)' }} />
                 <a href="mailto:alvinthadathil1@gmail.com" style={{ fontSize: '15px', color: 'var(--text-bright)', textDecoration: 'none' }}>
                   alvinthadathil1@gmail.com

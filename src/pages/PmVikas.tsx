@@ -24,7 +24,7 @@ export const PmVikas: React.FC = () => {
       </div>
 
       {/* Grid Layout: Details & Overview */}
-      <div style={{ display: 'grid', gridTemplateColumns: '7fr 5fr', gap: '30px', margin: '40px 0' }}>
+      <div className="grid-cyber-split">
         {/* Large Details Card */}
         <div className="glass-panel" style={{ padding: '30px' }}>
           <h2 style={{ color: '#fff', fontSize: '24px', display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -40,7 +40,7 @@ export const PmVikas: React.FC = () => {
               Fully funded by the Ministry of Minority Affairs, this project aims to empower 450 candidates in high-employment, modern technical sectors. The program is divided into two focused sectors:
             </p>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginTop: '10px' }}>
+            <div className="grid-cyber-sub">
               <div 
                 style={{ 
                   background: 'rgba(0, 255, 102, 0.05)', 
@@ -186,17 +186,6 @@ export const PmVikas: React.FC = () => {
           ))}
         </div>
       </div>
-      
-      {/* Embedded Mobile CSS */}
-      <style>{`
-        @media (max-width: 900px) {
-          div[style*="gridTemplateColumns: 7fr 5fr"] {
-            grid-template-columns: 1fr !important;
-            display: flex !important;
-            flex-direction: column !important;
-          }
-        }
-      `}</style>
     </div>
   );
 };
