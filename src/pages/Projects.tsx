@@ -95,7 +95,7 @@ export const Projects: React.FC = () => {
 
           <div style={{ display: 'flex', gap: '16px', marginTop: '30px' }}>
             <a 
-              href="https://github.com/RosemaryReji/CyberSim" 
+              href="https://github.com/Meoclavez/CyberSim" 
               target="_blank" 
               rel="noreferrer" 
               className="btn-cyber"
@@ -196,6 +196,74 @@ export const Projects: React.FC = () => {
               </div>
             );
           })}
+        </div>
+      </div>
+
+      {/* Other Projects Section */}
+      <div className="glass-panel" style={{ padding: '30px', marginTop: '30px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontFamily: 'var(--font-mono)', color: 'var(--color-primary)', fontSize: '12px', fontWeight: 600, marginBottom: '20px' }}>
+          <Code size={16} />
+          [ACADEMIC_&_PRACTICAL_ARCHIVES]
+        </div>
+
+        <h2 style={{ color: '#fff', fontSize: '24px', marginBottom: '24px' }}>
+          Coursework & Application Implementations
+        </h2>
+
+        <div className="grid-cyber-split" style={{ margin: '0', gap: '20px' }}>
+          {/* Project 1: Banking-App */}
+          <div style={{ background: 'rgba(10, 15, 25, 0.4)', border: '1px solid rgba(0, 240, 255, 0.1)', padding: '24px', borderRadius: '12px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '16px' }}>
+                <div style={{ width: '40px', height: '40px', borderRadius: '8px', background: 'rgba(0, 240, 255, 0.05)', color: 'var(--color-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <Server size={20} />
+                </div>
+                <span className="tag-cyber">Java & SQL</span>
+              </div>
+              <h3 style={{ color: '#fff', fontSize: '18px', marginBottom: '10px' }}>Secure Banking Application</h3>
+              <p style={{ fontSize: '13px', color: 'var(--text-main)', lineHeight: 1.6 }}>
+                A model of a simple, robust banking application written in <strong>Java</strong> with direct <strong>SQL integrations</strong>. Implements secure transactional schemas, user account validation layers, balance query operations, and structured credential checks via safe relational tables.
+              </p>
+            </div>
+            <div style={{ marginTop: '20px', display: 'flex', gap: '12px' }}>
+              <a 
+                href="https://github.com/Meoclavez/Banking-App" 
+                target="_blank" 
+                rel="noreferrer" 
+                className="btn-cyber"
+                style={{ fontSize: '12px', padding: '6px 12px' }}
+              >
+                <GitBranch size={14} /> Repository <ExternalLink size={10} />
+              </a>
+            </div>
+          </div>
+
+          {/* Project 2: Attendance Register */}
+          <div style={{ background: 'rgba(10, 15, 25, 0.4)', border: '1px solid rgba(0, 240, 255, 0.1)', padding: '24px', borderRadius: '12px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '16px' }}>
+                <div style={{ width: '40px', height: '40px', borderRadius: '8px', background: 'rgba(5, 206, 145, 0.05)', color: 'var(--color-secondary)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <Code size={20} />
+                </div>
+                <span className="tag-cyber tag-green">Java OOP</span>
+              </div>
+              <h3 style={{ color: '#fff', fontSize: '18px', marginBottom: '10px' }}>Academic Attendance Register</h3>
+              <p style={{ fontSize: '13px', color: 'var(--text-main)', lineHeight: 1.6 }}>
+                A structured coursework project managing student presence, batch registration profiles, and database indices. Built strictly adhering to Object-Oriented Programming (OOP) architectures in <strong>Java</strong> to handle dynamic entry lists and tracking reports.
+              </p>
+            </div>
+            <div style={{ marginTop: '20px', display: 'flex', gap: '12px' }}>
+              <a 
+                href="https://github.com/Meoclavez/attendence-register" 
+                target="_blank" 
+                rel="noreferrer" 
+                className="btn-cyber"
+                style={{ fontSize: '12px', padding: '6px 12px' }}
+              >
+                <GitBranch size={14} /> Repository <ExternalLink size={10} />
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>

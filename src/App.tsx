@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import PmVikas from './pages/PmVikas';
 import Projects from './pages/Projects';
 import SkillsCertificates from './pages/SkillsCertificates';
+import DesktopSetup from './pages/DesktopSetup';
 
 function App() {
   const [activeTab, setActiveTab] = useState<string>('home');
@@ -19,6 +20,8 @@ function App() {
         return <Projects />;
       case 'skills':
         return <SkillsCertificates />;
+      case 'setup':
+        return <DesktopSetup />;
       default:
         return <Home setActiveTab={setActiveTab} />;
     }

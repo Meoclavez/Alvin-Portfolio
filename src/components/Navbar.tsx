@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home, Award, Cpu, Shield } from 'lucide-react';
+import { Home, Award, Cpu, Shield, Sliders } from 'lucide-react';
 
 interface NavbarProps {
   activeTab: string;
@@ -12,6 +12,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
     { id: 'pmvikas', label: 'PM VIKAS', icon: Cpu },
     { id: 'projects', label: 'Projects', icon: Shield },
     { id: 'skills', label: 'Credentials', icon: Award },
+    { id: 'setup', label: 'Setup', icon: Sliders },
   ];
 
   return (
