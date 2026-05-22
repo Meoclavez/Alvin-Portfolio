@@ -31,22 +31,22 @@ export const PmVikas: React.FC = () => {
             <Cpu size={24} style={{ color: 'var(--color-secondary)' }} />
             IIIT Kottayam Project Implementation
           </h2>
-          
+
           <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginTop: '20px', lineHeight: 1.7 }}>
             <p>
-              In July 2025, the **Indian Institute of Information Technology (IIIT) Kottayam** was selected to implement a specialized training project under the **PM VIKAS (Pradhan Mantri Virasat Ka Samvardhan)** scheme, making it the **first higher education institution in the country** to do so.
+              In July 2025, the <strong>Indian Institute of Information Technology (IIIT) Kottayam</strong> was selected to implement a specialized training project under the <strong>PM VIKAS (Pradhan Mantri Virasat Ka Samvardhan)</strong> scheme, making it the <strong>first higher education institution in the country</strong> to do so.
             </p>
             <p>
               Fully funded by the Ministry of Minority Affairs, this project aims to empower 450 candidates in high-employment, modern technical sectors. The program is divided into two focused sectors:
             </p>
 
             <div className="grid-cyber-sub">
-              <div 
-                style={{ 
-                  background: 'rgba(0, 255, 102, 0.05)', 
-                  border: '1px solid rgba(0, 255, 102, 0.2)', 
-                  padding: '20px', 
-                  borderRadius: '12px' 
+              <div
+                style={{
+                  background: 'rgba(0, 255, 102, 0.05)',
+                  border: '1px solid rgba(0, 255, 102, 0.2)',
+                  padding: '20px',
+                  borderRadius: '12px'
                 }}
               >
                 <div style={{ fontWeight: 700, color: 'var(--color-secondary)', fontSize: '16px' }}>150 Youth in IoT</div>
@@ -55,12 +55,12 @@ export const PmVikas: React.FC = () => {
                 </div>
               </div>
 
-              <div 
-                style={{ 
-                  background: 'rgba(139, 92, 246, 0.05)', 
-                  border: '1px solid rgba(139, 92, 246, 0.2)', 
-                  padding: '20px', 
-                  borderRadius: '12px' 
+              <div
+                style={{
+                  background: 'rgba(139, 92, 246, 0.05)',
+                  border: '1px solid rgba(139, 92, 246, 0.2)',
+                  padding: '20px',
+                  borderRadius: '12px'
                 }}
               >
                 <div style={{ fontWeight: 700, color: 'var(--color-accent)', fontSize: '16px' }}>300 Women Entrepreneurs</div>
@@ -80,7 +80,7 @@ export const PmVikas: React.FC = () => {
               <Calendar size={18} style={{ color: 'var(--color-secondary)' }} />
               Registration Profile
             </h3>
-            
+
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginTop: '20px', fontSize: '14px' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <span style={{ color: 'var(--text-muted)' }}>BATCH CODE:</span>
@@ -110,23 +110,23 @@ export const PmVikas: React.FC = () => {
             <p style={{ fontSize: '13px', marginTop: '8px', lineHeight: 1.5 }}>
               Refer to the official registration manual detailing steps, portal instructions, and documents needed for verification.
             </p>
-            
+
             <div style={{ marginTop: '20px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-              <a 
-                href="/SIDH — IoT Assistant Registration Guide.pdf" 
+              <a
+                href="/SIDH — IoT Assistant Registration Guide.pdf"
                 target="_blank"
                 rel="noreferrer"
-                className="btn-cyber" 
+                className="btn-cyber"
                 style={{ width: '100%', justifyContent: 'center' }}
               >
                 <Download size={16} />
                 SIDH Guide PDF
               </a>
-              <a 
-                href="https://www.skillindiadigital.gov.in" 
+              <a
+                href="https://www.skillindiadigital.gov.in"
                 target="_blank"
                 rel="noreferrer"
-                className="btn-cyber btn-purple" 
+                className="btn-cyber btn-purple"
                 style={{ width: '100%', justifyContent: 'center' }}
               >
                 Skill India Hub <ExternalLink size={14} />
@@ -144,13 +144,13 @@ export const PmVikas: React.FC = () => {
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '20px' }}>
           {syllabusItems.map((item, index) => (
-            <div 
-              key={index} 
-              style={{ 
-                background: 'rgba(10, 15, 25, 0.4)', 
-                border: '1px solid rgba(0, 240, 255, 0.1)', 
-                padding: '24px', 
-                borderRadius: '12px' 
+            <div
+              key={index}
+              style={{
+                background: 'rgba(10, 15, 25, 0.4)',
+                border: '1px solid rgba(0, 240, 255, 0.1)',
+                padding: '24px',
+                borderRadius: '12px'
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.borderColor = 'var(--color-secondary)';
@@ -162,15 +162,15 @@ export const PmVikas: React.FC = () => {
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
-                <div 
-                  style={{ 
-                    width: '32px', 
-                    height: '32px', 
-                    borderRadius: '8px', 
-                    background: 'rgba(0, 255, 102, 0.1)', 
-                    display: 'flex', 
-                    alignItems: 'center', 
-                    justifyContent: 'center', 
+                <div
+                  style={{
+                    width: '32px',
+                    height: '32px',
+                    borderRadius: '8px',
+                    background: 'rgba(0, 255, 102, 0.1)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
                     color: 'var(--color-secondary)',
                     fontWeight: 700,
                     fontSize: '14px',
