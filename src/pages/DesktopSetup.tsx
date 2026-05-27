@@ -173,7 +173,7 @@ exec-once = caelestia shell -d`,
 
         <div className="grid-cyber-split" style={{ margin: '0' }}>
           {/* Card 1: Backlight Sync Daemon */}
-          <div style={{ background: 'rgba(10, 15, 25, 0.4)', border: '1px solid rgba(0, 240, 255, 0.1)', padding: '24px', borderRadius: '12px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+          <div style={{ background: 'var(--bg-card-sub)', border: '1px solid rgba(0, 240, 255, 0.1)', padding: '24px', borderRadius: '12px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
             <div>
               <div style={{ width: '40px', height: '40px', borderRadius: '8px', background: 'rgba(0, 240, 255, 0.05)', color: 'var(--color-primary)', display: 'flex', alignItems: 'center', marginBottom: '16px', justifyContent: 'center' }}>
                 <Keyboard size={20} />
@@ -192,7 +192,7 @@ exec-once = caelestia shell -d`,
           </div>
 
           {/* Card 2: Caelestia Desktop Environment */}
-          <div style={{ background: 'rgba(10, 15, 25, 0.4)', border: '1px solid rgba(0, 240, 255, 0.1)', padding: '24px', borderRadius: '12px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+          <div style={{ background: 'var(--bg-card-sub)', border: '1px solid rgba(0, 240, 255, 0.1)', padding: '24px', borderRadius: '12px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
             <div>
               <div style={{ width: '40px', height: '40px', borderRadius: '8px', background: 'rgba(5, 206, 145, 0.05)', color: 'var(--color-secondary)', display: 'flex', alignItems: 'center', marginBottom: '16px', justifyContent: 'center' }}>
                 <Monitor size={20} />

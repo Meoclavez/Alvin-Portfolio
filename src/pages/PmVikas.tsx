@@ -147,7 +147,7 @@ export const PmVikas: React.FC = () => {
             <div
               key={index}
               style={{
-                background: 'rgba(10, 15, 25, 0.4)',
+                background: 'var(--bg-card-sub)',
                 border: '1px solid rgba(0, 240, 255, 0.1)',
                 padding: '24px',
                 borderRadius: '12px'

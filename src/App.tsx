@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import { GridBackground } from './components/GridBackground';
+import { InteractiveBackground } from './components/InteractiveBackground';
 import Home from './pages/Home';
 import PmVikas from './pages/PmVikas';
 import Projects from './pages/Projects';
@@ -43,6 +44,9 @@ function App() {
 
   return (
     <>
+      {/* Dynamic Animated background */}
+      <InteractiveBackground />
+
       {/* Animated Mesh Cyber Grid Backdrop */}
       <GridBackground />
 

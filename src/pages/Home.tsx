@@ -1,5 +1,6 @@
 import React from 'react';
 import DecryptedText from '../components/DecryptedText';
+import { TiltedCard } from '../components/TiltedCard';
 import { Shield, Cpu, Award, ArrowUpRight, Terminal, Globe, MapPin, Mail } from 'lucide-react';
 
 interface HomeProps {
@@ -107,15 +108,14 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab }) => {
       {/* Bento Grid */}
       <div className="bento-grid">
         {/* Card 1: Operative Dossier (Large Left) */}
-        <div 
+        <TiltedCard 
           className="glass-panel" 
           style={{ 
             gridColumn: 'span 7', 
             padding: '30px', 
-            display: 'flex', 
-            flexDirection: 'column', 
-            justifyContent: 'space-between',
             minHeight: '260px',
+            display: 'flex',
+            flexDirection: 'column',
           }}
         >
           <div>
@@ -148,18 +148,17 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab }) => {
           <div style={{ marginTop: '20px', fontSize: '14px', fontStyle: 'italic', color: 'var(--text-muted)' }}>
             // "Security is not a product, but a process." — Bruce Schneier
           </div>
-        </div>
+        </TiltedCard>
 
         {/* Card 2: PM VIKAS Selected (Right Upper) */}
-        <div 
+        <TiltedCard 
           className="glass-panel" 
           style={{ 
             gridColumn: 'span 5', 
             padding: '30px', 
-            display: 'flex', 
-            flexDirection: 'column', 
-            justifyContent: 'space-between',
             borderLeft: '4px solid var(--color-secondary)',
+            display: 'flex',
+            flexDirection: 'column',
           }}
         >
           <div>
@@ -190,18 +189,17 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab }) => {
           >
             Explore Scheme Details <ArrowUpRight size={16} />
           </button>
-        </div>
+        </TiltedCard>
 
         {/* Card 3: Main Project - CyberSim (Left Lower) */}
-        <div 
+        <TiltedCard 
           className="glass-panel" 
           style={{ 
             gridColumn: 'span 5', 
             padding: '30px', 
-            display: 'flex', 
-            flexDirection: 'column', 
-            justifyContent: 'space-between',
             borderLeft: '4px solid var(--color-primary)',
+            display: 'flex',
+            flexDirection: 'column',
           }}
         >
           <div>
@@ -232,17 +230,16 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab }) => {
           >
             Review Architecture <ArrowUpRight size={16} />
           </button>
-        </div>
+        </TiltedCard>
 
         {/* Card 4: Verified Credentials Summary (Right Lower Large) */}
-        <div 
+        <TiltedCard 
           className="glass-panel" 
           style={{ 
             gridColumn: 'span 7', 
             padding: '30px', 
-            display: 'flex', 
-            flexDirection: 'column', 
-            justifyContent: 'space-between',
+            display: 'flex',
+            flexDirection: 'column',
           }}
         >
           <div>
@@ -282,7 +279,7 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab }) => {
           >
             Launch Credentials Vault <ArrowUpRight size={16} />
           </button>
-        </div>
+        </TiltedCard>
       </div>
     </div>
   );

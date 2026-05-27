@@ -162,7 +162,7 @@ export const Projects: React.FC = () => {
               <div 
                 key={index}
                 style={{ 
-                  background: 'rgba(10, 15, 25, 0.4)', 
+                  background: 'var(--bg-card-sub)', 
                   border: '1px solid rgba(0, 240, 255, 0.1)', 
                   padding: '24px', 
                   borderRadius: '12px' 
@@ -212,7 +212,7 @@ export const Projects: React.FC = () => {
 
         <div className="grid-cyber-split" style={{ margin: '0', gap: '20px' }}>
           {/* Project 1: Banking-App */}
-          <div style={{ background: 'rgba(10, 15, 25, 0.4)', border: '1px solid rgba(0, 240, 255, 0.1)', padding: '24px', borderRadius: '12px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+          <div style={{ background: 'var(--bg-card-sub)', border: '1px solid rgba(0, 240, 255, 0.1)', padding: '24px', borderRadius: '12px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
             <div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '16px' }}>
                 <div style={{ width: '40px', height: '40px', borderRadius: '8px', background: 'rgba(0, 240, 255, 0.05)', color: 'var(--color-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -239,7 +239,7 @@ export const Projects: React.FC = () => {
           </div>
 
           {/* Project 2: Attendance Register */}
-          <div style={{ background: 'rgba(10, 15, 25, 0.4)', border: '1px solid rgba(0, 240, 255, 0.1)', padding: '24px', borderRadius: '12px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+          <div style={{ background: 'var(--bg-card-sub)', border: '1px solid rgba(0, 240, 255, 0.1)', padding: '24px', borderRadius: '12px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
             <div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '16px' }}>
                 <div style={{ width: '40px', height: '40px', borderRadius: '8px', background: 'rgba(5, 206, 145, 0.05)', color: 'var(--color-secondary)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>

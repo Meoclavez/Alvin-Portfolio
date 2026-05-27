@@ -4,18 +4,22 @@ interface TiltedCardProps {
   children: React.ReactNode;
   maxRotate?: number; // Maximum rotation in degrees
   className?: string;
+  style?: React.CSSProperties;
   onClick?: () => void;
 }
 
 export const TiltedCard: React.FC<TiltedCardProps> = ({
   children,
-  maxRotate = 15,
+  maxRotate = 8,
   className = '',
+  style = {},
   onClick,
 }) => {
   const cardRef = useRef<HTMLDivElement | null>(null);
   const [rotateX, setRotateX] = useState<number>(0);
   const [rotateY, setRotateY] = useState<number>(0);
+  const [coords, setCoords] = useState({ x: 0, y: 0 });
+  const [isFocused, setIsFocused] = useState(false);
   const [shadowStyle, setShadowStyle] = useState<string>('0 8px 30px rgba(0,0,0,0.3)');
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -26,29 +30,34 @@ export const TiltedCard: React.FC<TiltedCardProps> = ({
     const width = rect.width;
     const height = rect.height;
     
-    // Mouse coordinates relative to card center
-    const mouseX = e.clientX - rect.left - width / 2;
-    const mouseY = e.clientY - rect.top - height / 2;
+    // Mouse coordinates relative to card
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    setCoords({ x, y });
 
-    // Convert mouse position to target rotation
-    // Note: Moving mouse up (negative mouseY) rotates around X-axis positively (rotates card face up)
-    // Moving mouse right (positive mouseX) rotates around Y-axis positively (rotates card right)
+    // Mouse coordinates relative to card center
+    const mouseX = x - width / 2;
+    const mouseY = y - height / 2;
+
     const targetRotateY = (mouseX / (width / 2)) * maxRotate;
     const targetRotateX = -(mouseY / (height / 2)) * maxRotate;
 
     setRotateX(targetRotateX);
     setRotateY(targetRotateY);
 
-    // Dynamic glowing shadow that matches the tilting direction!
     const shadowX = -targetRotateY * 1.5;
     const shadowY = targetRotateX * 1.5;
-    setShadowStyle(`${shadowX}px ${shadowY}px 35px rgba(0, 240, 255, 0.15), 0 8px 30px rgba(0,0,0,0.3)`);
+    setShadowStyle(`${shadowX}px ${shadowY}px 35px var(--border-color), 0 8px 30px rgba(0,0,0,0.3)`);
+  };
+
+  const handleMouseEnter = () => {
+    setIsFocused(true);
   };
 
   const handleMouseLeave = () => {
-    // Reset tilt on leave
     setRotateX(0);
     setRotateY(0);
+    setIsFocused(false);
     setShadowStyle('0 8px 30px rgba(0,0,0,0.3)');
   };
 
@@ -56,19 +65,41 @@ export const TiltedCard: React.FC<TiltedCardProps> = ({
     <div
       ref={cardRef}
       onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={onClick}
       className={className}
       style={{
-        transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`,
-        transition: 'transform 0.15s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.15s ease',
+        ...style,
+        transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.01, 1.01, 1.01)`,
+        transition: 'transform 0.15s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.15s ease, border-color 0.3s ease, background 0.3s ease',
         boxShadow: shadowStyle,
         cursor: onClick ? 'pointer' : 'default',
         transformStyle: 'preserve-3d',
+        position: 'relative',
+        overflow: 'hidden',
       }}
     >
+      {/* Spotlight Cursor Glow Overlay */}
+      {isFocused && (
+        <div
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            pointerEvents: 'none',
+            background: `radial-gradient(circle 200px at ${coords.x}px ${coords.y}px, var(--border-glow), transparent 75%)`,
+            opacity: 0.15,
+            zIndex: 0,
+            transition: 'opacity 0.2s ease',
+          }}
+        />
+      )}
+
       {/* 3D Child Wrapper for extra pop */}
-      <div style={{ transform: 'translateZ(10px)', height: '100%' }}>
+      <div style={{ transform: 'translateZ(12px)', height: '100%', zIndex: 1, position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
         {children}
       </div>
     </div>

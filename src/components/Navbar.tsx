@@ -39,7 +39,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, theme, 
           padding: '8px 16px',
           borderRadius: '30px',
           background: 'var(--bg-card)',
-          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4)',
+          boxShadow: 'var(--shadow-navbar)',
         }}
       >
         {/* Glowing Logo */}
@@ -79,7 +79,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, theme, 
                   padding: '8px 16px',
                   borderRadius: '20px',
                   border: 'none',
-                  background: isActive ? 'rgba(0, 240, 255, 0.1)' : 'transparent',
+                  background: isActive ? 'var(--bg-active-tab)' : 'transparent',
                   color: isActive ? 'var(--color-primary)' : 'var(--text-main)',
                   cursor: 'pointer',
                   fontSize: '14px',

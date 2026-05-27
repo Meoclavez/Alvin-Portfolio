@@ -12,7 +12,7 @@ export const GridBackground: React.FC = () => {
         zIndex: -1,
         overflow: 'hidden',
         pointerEvents: 'none',
-        backgroundColor: 'var(--bg-main)',
+        backgroundColor: 'transparent',
       }}
     >
       {/* Radial Gradient overlay for vignette effect and card contrast */}
