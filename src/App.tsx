@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
-import { GridBackground } from './components/GridBackground';
 import { InteractiveBackground } from './components/InteractiveBackground';
 import Home from './pages/Home';
 import PmVikas from './pages/PmVikas';
@@ -46,9 +45,6 @@ function App() {
     <>
       {/* Dynamic Animated background */}
       <InteractiveBackground />
-
-      {/* Animated Mesh Cyber Grid Backdrop */}
-      <GridBackground />
 
       {/* Floating Responsive Navigation menu */}
       <Navbar activeTab={activeTab} setActiveTab={setActiveTab} theme={theme} toggleTheme={toggleTheme} />
