@@ -53,9 +53,9 @@ export const InteractiveBackground: React.FC = () => {
         />
       ) : (
         <LightPillar
-          topColor="#1e40af"
-          bottomColor="#60a5fa"
-          intensity={0.8}
+          topColor="#7dd3fc"
+          bottomColor="#e0f2fe"
+          intensity={1.0}
           rotationSpeed={0.25}
           glowAmount={0.0025}
           pillarWidth={3.2}
