@@ -125,7 +125,7 @@ exec-once = caelestia shell -d`,
               style={{ 
                 height: '100%', 
                 padding: '35px 30px', 
-                background: 'linear-gradient(135deg, rgba(8, 20, 32, 0.7) 0%, rgba(3, 5, 8, 0.9) 100%)',
+                background: 'var(--bg-card-gradient)',
                 border: '1px solid var(--color-primary)',
                 display: 'flex',
                 flexDirection: 'column',

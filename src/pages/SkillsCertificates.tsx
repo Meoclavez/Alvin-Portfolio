@@ -152,7 +152,7 @@ export const SkillsCertificates: React.FC = () => {
                   <span style={{ color: 'var(--text-bright)' }}>{s.name}</span>
                   <span style={{ fontFamily: 'var(--font-mono)', color: 'var(--color-primary)' }}>{s.level}%</span>
                 </div>
-                <div style={{ height: '6px', background: 'rgba(255,255,255,0.05)', borderRadius: '3px', overflow: 'hidden' }}>
+                <div style={{ height: '6px', background: 'var(--bg-active-tab)', borderRadius: '3px', overflow: 'hidden' }}>
                   <div style={{ width: `${s.level}%`, height: '100%', background: 'var(--color-primary)', boxShadow: '0 0 10px var(--color-primary)' }}></div>
                 </div>
               </div>
@@ -173,7 +173,7 @@ export const SkillsCertificates: React.FC = () => {
                   <span style={{ color: 'var(--text-bright)' }}>{s.name}</span>
                   <span style={{ fontFamily: 'var(--font-mono)', color: 'var(--color-secondary)' }}>{s.level}%</span>
                 </div>
-                <div style={{ height: '6px', background: 'rgba(255,255,255,0.05)', borderRadius: '3px', overflow: 'hidden' }}>
+                <div style={{ height: '6px', background: 'var(--bg-active-tab)', borderRadius: '3px', overflow: 'hidden' }}>
                   <div style={{ width: `${s.level}%`, height: '100%', background: 'var(--color-secondary)', boxShadow: '0 0 10px var(--color-secondary)' }}></div>
                 </div>
               </div>
@@ -194,7 +194,7 @@ export const SkillsCertificates: React.FC = () => {
                   <span style={{ color: 'var(--text-bright)' }}>{s.name}</span>
                   <span style={{ fontFamily: 'var(--font-mono)', color: 'var(--color-accent)' }}>{s.level}%</span>
                 </div>
-                <div style={{ height: '6px', background: 'rgba(255,255,255,0.05)', borderRadius: '3px', overflow: 'hidden' }}>
+                <div style={{ height: '6px', background: 'var(--bg-active-tab)', borderRadius: '3px', overflow: 'hidden' }}>
                   <div style={{ width: `${s.level}%`, height: '100%', background: 'var(--color-accent)', boxShadow: '0 0 10px var(--color-accent)' }}></div>
                 </div>
               </div>
@@ -234,7 +234,7 @@ export const SkillsCertificates: React.FC = () => {
                 flexDirection: 'column',
                 justifyContent: 'space-between',
                 borderLeft: `4px solid ${cert.color}`,
-                background: 'linear-gradient(to bottom right, rgba(13, 20, 30, 0.4) 0%, rgba(5, 7, 10, 0.6) 100%)',
+                background: 'var(--bg-card-gradient)',
                 minHeight: '220px'
               }}
             >
@@ -252,7 +252,7 @@ export const SkillsCertificates: React.FC = () => {
                 </div>
               </div>
 
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '20px', borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '12px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '20px', borderTop: '1px solid var(--border-color)', paddingTop: '12px' }}>
                 <span style={{ fontSize: '12px', color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: '4px' }}>
                   <Calendar size={12} />
                   {cert.date}
