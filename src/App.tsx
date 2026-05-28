@@ -75,7 +75,7 @@ function App() {
       {/* Floating Responsive Navigation menu */}
       <div 
         style={{ 
-          transition: 'all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1)', 
+          transition: 'padding-left 0.6s cubic-bezier(0.25, 0.8, 0.25, 1)', 
           paddingLeft: isShifted ? '340px' : '0px' 
         }}
       >
@@ -92,7 +92,7 @@ function App() {
         style={{ 
           flex: 1, 
           paddingBottom: '60px', 
-          transition: 'all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1)', 
+          transition: 'padding-left 0.6s cubic-bezier(0.25, 0.8, 0.25, 1)', 
           paddingLeft: isShifted ? '340px' : '0px' 
         }}
       >
@@ -108,7 +108,7 @@ function App() {
           color: 'var(--text-muted)',
           borderTop: '1px solid var(--border-color)',
           background: 'var(--bg-card)',
-          transition: 'all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1)',
+          transition: 'padding-left 0.6s cubic-bezier(0.25, 0.8, 0.25, 1)',
           paddingLeft: isShifted ? '364px' : '24px',
         }}
       >

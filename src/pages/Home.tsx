@@ -16,7 +16,6 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab, scrolled, isDesktop })
         className="container-cyber" 
         style={{ 
           animation: 'floatAnimation 10s ease-in-out infinite',
-          transition: 'all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1)',
           paddingLeft: '24px',
           paddingRight: '24px',
           maxWidth: '1200px'
@@ -47,7 +46,7 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab, scrolled, isDesktop })
             justifyContent: 'center',
             background: 'var(--bg-card)',
             // SCROLL TRANSITION FOR DESKTOP
-            transition: 'all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1)',
+            transition: 'transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.6s cubic-bezier(0.25, 0.8, 0.25, 1)',
             transform: (isDesktop && scrolled) 
               ? 'translate(calc(-50vw - 116px), -60px) scale(0.46)' 
               : 'translate(0, 0) scale(1)',
@@ -385,7 +384,7 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab, scrolled, isDesktop })
             padding: '30px 24px',
             opacity: scrolled ? 1 : 0,
             pointerEvents: scrolled ? 'auto' : 'none',
-            transition: 'all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1)',
+            transition: 'left 0.6s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.6s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.6s cubic-bezier(0.25, 0.8, 0.25, 1)',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
