@@ -26,7 +26,7 @@ export const PmVikas: React.FC = () => {
       {/* Grid Layout: Details & Overview */}
       <div className="grid-cyber-split">
         {/* Large Details Card */}
-        <div className="glass-panel" style={{ padding: '30px' }}>
+        <div className="glass-panel" style={{ padding: 'clamp(16px, 4vw, 30px)' }}>
           <h2 style={{ color: 'var(--text-bright)', fontSize: '24px', display: 'flex', alignItems: 'center', gap: '10px' }}>
             <Cpu size={24} style={{ color: 'var(--color-secondary)' }} />
             IIIT Kottayam Project Implementation
@@ -75,7 +75,7 @@ export const PmVikas: React.FC = () => {
         {/* Enrollment & Resources Card */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
           {/* Status Box */}
-          <div className="glass-panel" style={{ padding: '30px', borderLeft: '4px solid var(--color-secondary)' }}>
+          <div className="glass-panel" style={{ padding: 'clamp(16px, 4vw, 30px)', borderLeft: '4px solid var(--color-secondary)' }}>
             <h3 style={{ color: 'var(--text-bright)', fontSize: '18px', display: 'flex', alignItems: 'center', gap: '8px' }}>
               <Calendar size={18} style={{ color: 'var(--color-secondary)' }} />
               Registration Profile
@@ -102,7 +102,7 @@ export const PmVikas: React.FC = () => {
           </div>
 
           {/* Resources Download */}
-          <div className="glass-panel" style={{ padding: '30px' }}>
+          <div className="glass-panel" style={{ padding: 'clamp(16px, 4vw, 30px)' }}>
             <h3 style={{ color: 'var(--text-bright)', fontSize: '18px', display: 'flex', alignItems: 'center', gap: '8px' }}>
               <BookOpen size={18} style={{ color: 'var(--color-primary)' }} />
               Learner Resources
@@ -137,12 +137,12 @@ export const PmVikas: React.FC = () => {
       </div>
 
       {/* Training Syllabus Showcase */}
-      <div className="glass-panel" style={{ padding: '30px', marginTop: '30px' }}>
+      <div className="glass-panel" style={{ padding: 'clamp(16px, 4vw, 30px)', marginTop: '30px' }}>
         <h2 style={{ color: 'var(--text-bright)', fontSize: '24px', textAlign: 'center', marginBottom: '30px' }}>
           IoT Assistant Training Core Curriculums
         </h2>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '20px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(320px, 100%), 1fr))', gap: '20px' }}>
           {syllabusItems.map((item, index) => (
             <div
               key={index}

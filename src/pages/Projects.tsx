@@ -46,7 +46,7 @@ export const Projects: React.FC = () => {
       {/* Main Project: CyberSim */}
       <div className="grid-cyber-split">
         {/* Large CyberSim Description */}
-        <div className="glass-panel" style={{ padding: '30px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+        <div className="glass-panel" style={{ padding: 'clamp(16px, 4vw, 30px)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
           <div>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
               <div 
@@ -113,7 +113,7 @@ export const Projects: React.FC = () => {
               className="glass-panel" 
               style={{ 
                 height: '100%', 
-                padding: '30px', 
+                padding: 'clamp(16px, 4vw, 30px)', 
                 background: 'var(--bg-card-gradient)',
                 border: '1px solid var(--color-primary)',
                 display: 'flex',
@@ -150,12 +150,12 @@ export const Projects: React.FC = () => {
       </div>
 
       {/* CyberSim Interactive Modules */}
-      <div className="glass-panel" style={{ padding: '30px', marginTop: '30px' }}>
+      <div className="glass-panel" style={{ padding: 'clamp(16px, 4vw, 30px)', marginTop: '30px' }}>
         <h2 style={{ color: 'var(--text-bright)', fontSize: '24px', textAlign: 'center', marginBottom: '30px' }}>
           Immersive CyberSim Training Modules
         </h2>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '20px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(260px, 100%), 1fr))', gap: '20px' }}>
           {modules.map((mod, index) => {
             const Icon = mod.icon;
             return (
@@ -164,7 +164,7 @@ export const Projects: React.FC = () => {
                 style={{ 
                   background: 'var(--bg-card-sub)', 
                   border: '1px solid rgba(0, 240, 255, 0.1)', 
-                  padding: '24px', 
+                  padding: 'clamp(12px, 3vw, 24px)', 
                   borderRadius: '12px' 
                 }}
                 onMouseEnter={(e) => {
@@ -200,7 +200,7 @@ export const Projects: React.FC = () => {
       </div>
 
       {/* Other Projects Section */}
-      <div className="glass-panel" style={{ padding: '30px', marginTop: '30px' }}>
+      <div className="glass-panel" style={{ padding: 'clamp(16px, 4vw, 30px)', marginTop: '30px' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontFamily: 'var(--font-mono)', color: 'var(--color-primary)', fontSize: '12px', fontWeight: 600, marginBottom: '20px' }}>
           <Code size={16} />
           [ACADEMIC_&_PRACTICAL_ARCHIVES]
@@ -212,7 +212,7 @@ export const Projects: React.FC = () => {
 
         <div className="grid-cyber-split" style={{ margin: '0', gap: '20px' }}>
           {/* Project 1: Banking-App */}
-          <div style={{ background: 'var(--bg-card-sub)', border: '1px solid rgba(0, 240, 255, 0.1)', padding: '24px', borderRadius: '12px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+          <div style={{ background: 'var(--bg-card-sub)', border: '1px solid rgba(0, 240, 255, 0.1)', padding: 'clamp(12px, 3vw, 24px)', borderRadius: '12px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
             <div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '16px' }}>
                 <div style={{ width: '40px', height: '40px', borderRadius: '8px', background: 'rgba(0, 240, 255, 0.05)', color: 'var(--color-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -239,7 +239,7 @@ export const Projects: React.FC = () => {
           </div>
 
           {/* Project 2: Attendance Register */}
-          <div style={{ background: 'var(--bg-card-sub)', border: '1px solid rgba(0, 240, 255, 0.1)', padding: '24px', borderRadius: '12px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+          <div style={{ background: 'var(--bg-card-sub)', border: '1px solid rgba(0, 240, 255, 0.1)', padding: 'clamp(12px, 3vw, 24px)', borderRadius: '12px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
             <div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '16px' }}>
                 <div style={{ width: '40px', height: '40px', borderRadius: '8px', background: 'rgba(5, 206, 145, 0.05)', color: 'var(--color-secondary)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>

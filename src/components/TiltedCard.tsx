@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 interface TiltedCardProps {
   children: React.ReactNode;
@@ -21,8 +21,19 @@ export const TiltedCard: React.FC<TiltedCardProps> = ({
   const [coords, setCoords] = useState({ x: 0, y: 0 });
   const [isFocused, setIsFocused] = useState(false);
   const [shadowStyle, setShadowStyle] = useState<string>('0 8px 30px rgba(0,0,0,0.3)');
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 900);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize, { passive: true });
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (isMobile) return;
     const card = cardRef.current;
     if (!card) return;
 
@@ -71,17 +82,17 @@ export const TiltedCard: React.FC<TiltedCardProps> = ({
       className={className}
       style={{
         ...style,
-        transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.01, 1.01, 1.01)`,
+        transform: isMobile ? 'none' : `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.01, 1.01, 1.01)`,
         transition: 'transform 0.15s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.15s ease, border-color 0.3s ease, background 0.3s ease',
-        boxShadow: shadowStyle,
+        boxShadow: isMobile ? '0 8px 30px rgba(0,0,0,0.3)' : shadowStyle,
         cursor: onClick ? 'pointer' : 'default',
-        transformStyle: 'preserve-3d',
+        transformStyle: isMobile ? 'flat' : 'preserve-3d',
         position: 'relative',
         overflow: 'hidden',
       }}
     >
       {/* Spotlight Cursor Glow Overlay */}
-      {isFocused && (
+      {isFocused && !isMobile && (
         <div
           style={{
             position: 'absolute',

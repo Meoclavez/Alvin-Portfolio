@@ -70,7 +70,7 @@ exec-once = caelestia shell -d`,
       {/* Grid: Tilted Card Setup Mockup + Technical Specs */}
       <div className="grid-cyber-split">
         {/* Left Side: System Specifications */}
-        <div className="glass-panel" style={{ padding: '30px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+        <div className="glass-panel" style={{ padding: 'clamp(16px, 4vw, 30px)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontFamily: 'var(--font-mono)', color: 'var(--color-primary)', fontSize: '12px', fontWeight: 600 }}>
               <Laptop size={16} />
@@ -124,7 +124,7 @@ exec-once = caelestia shell -d`,
               className="glass-panel" 
               style={{ 
                 height: '100%', 
-                padding: '35px 30px', 
+                padding: 'clamp(20px, 4vw, 35px) clamp(16px, 4vw, 30px)', 
                 background: 'var(--bg-card-gradient)',
                 border: '1px solid var(--color-primary)',
                 display: 'flex',
@@ -161,7 +161,7 @@ exec-once = caelestia shell -d`,
       </div>
 
       {/* Section: Custom Systems Projects */}
-      <div className="glass-panel" style={{ padding: '30px', marginTop: '30px' }}>
+      <div className="glass-panel" style={{ padding: 'clamp(16px, 4vw, 30px)', marginTop: '30px' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontFamily: 'var(--font-mono)', color: 'var(--color-secondary)', fontSize: '12px', fontWeight: 600, marginBottom: '20px' }}>
           <Code size={16} />
           [SYSTEMS_ENGINEERING_PLUGINS]
@@ -173,7 +173,7 @@ exec-once = caelestia shell -d`,
 
         <div className="grid-cyber-split" style={{ margin: '0' }}>
           {/* Card 1: Backlight Sync Daemon */}
-          <div style={{ background: 'var(--bg-card-sub)', border: '1px solid rgba(0, 240, 255, 0.1)', padding: '24px', borderRadius: '12px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+          <div style={{ background: 'var(--bg-card-sub)', border: '1px solid rgba(0, 240, 255, 0.1)', padding: 'clamp(12px, 3vw, 24px)', borderRadius: '12px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
             <div>
               <div style={{ width: '40px', height: '40px', borderRadius: '8px', background: 'rgba(0, 240, 255, 0.05)', color: 'var(--color-primary)', display: 'flex', alignItems: 'center', marginBottom: '16px', justifyContent: 'center' }}>
                 <Keyboard size={20} />
@@ -192,7 +192,7 @@ exec-once = caelestia shell -d`,
           </div>
 
           {/* Card 2: Caelestia Desktop Environment */}
-          <div style={{ background: 'var(--bg-card-sub)', border: '1px solid rgba(0, 240, 255, 0.1)', padding: '24px', borderRadius: '12px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+          <div style={{ background: 'var(--bg-card-sub)', border: '1px solid rgba(0, 240, 255, 0.1)', padding: 'clamp(12px, 3vw, 24px)', borderRadius: '12px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
             <div>
               <div style={{ width: '40px', height: '40px', borderRadius: '8px', background: 'rgba(5, 206, 145, 0.05)', color: 'var(--color-secondary)', display: 'flex', alignItems: 'center', marginBottom: '16px', justifyContent: 'center' }}>
                 <Monitor size={20} />
@@ -213,7 +213,7 @@ exec-once = caelestia shell -d`,
       </div>
 
       {/* Code Snippets Viewer Panel */}
-      <div className="glass-panel" style={{ padding: '30px', marginTop: '30px' }}>
+      <div className="glass-panel" style={{ padding: 'clamp(16px, 4vw, 30px)', marginTop: '30px' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px', marginBottom: '20px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontFamily: 'var(--font-mono)', color: 'var(--text-bright)', fontSize: '14px', fontWeight: 600 }}>
             <Terminal size={18} style={{ color: 'var(--color-primary)' }} />
@@ -272,7 +272,20 @@ exec-once = caelestia shell -d`,
             <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#ff5f56' }}></div>
             <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#ffbd2e' }}></div>
             <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#27c93f' }}></div>
-            <span style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)', marginLeft: '10px' }}>
+            <span 
+              style={{ 
+                fontSize: '11px', 
+                fontFamily: 'var(--font-mono)', 
+                color: 'var(--text-muted)', 
+                marginLeft: '10px',
+                whiteSpace: 'nowrap',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+                maxWidth: 'calc(100% - 70px)',
+                display: 'inline-block',
+                verticalAlign: 'middle'
+              }}
+            >
               guest@aj_sec_deck: ~/{activeCodeTab === 'hypr' ? '.config/hypr/hyprland/execs.conf' : '.local/bin/plasma-backlight-sync.py'}
             </span>
           </div>

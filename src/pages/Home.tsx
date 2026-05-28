@@ -1,13 +1,37 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import DecryptedText from '../components/DecryptedText';
 import { TiltedCard } from '../components/TiltedCard';
-import { Shield, Cpu, Award, ArrowUpRight, Terminal, Globe, MapPin, Mail } from 'lucide-react';
+import { Shield, Cpu, Award, ArrowUpRight, Terminal, Globe, MapPin, Mail, Phone } from 'lucide-react';
 
 interface HomeProps {
   setActiveTab: (tab: string) => void;
 }
 
 export const Home: React.FC<HomeProps> = ({ setActiveTab }) => {
+  const [scrolled, setScrolled] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth > 900);
+    };
+    const handleScroll = () => {
+      if (window.scrollY > 120) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+    handleResize();
+    handleScroll();
+    window.addEventListener('resize', handleResize, { passive: true });
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <div className="container-cyber" style={{ animation: 'floatAnimation 10s ease-in-out infinite' }}>
       {/* Terminal Title Header */}
@@ -34,6 +58,11 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab }) => {
             alignItems: 'center',
             justifyContent: 'center',
             background: 'var(--bg-card)',
+            // SCROLL TRANSITION FOR DESKTOP
+            transition: 'all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1)',
+            transform: (isDesktop && scrolled) ? 'scale(0.5) translateY(-50px)' : 'scale(1) translateY(0)',
+            opacity: (isDesktop && scrolled) ? 0 : 1,
+            pointerEvents: (isDesktop && scrolled) ? 'none' : 'auto',
           }}
         >
           <img 
@@ -112,7 +141,7 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab }) => {
           className="glass-panel" 
           style={{ 
             gridColumn: 'span 7', 
-            padding: '30px', 
+            padding: 'clamp(16px, 4vw, 30px)', 
             minHeight: '260px',
             display: 'flex',
             flexDirection: 'column',
@@ -155,7 +184,7 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab }) => {
           className="glass-panel" 
           style={{ 
             gridColumn: 'span 5', 
-            padding: '30px', 
+            padding: 'clamp(16px, 4vw, 30px)', 
             borderLeft: '4px solid var(--color-secondary)',
             display: 'flex',
             flexDirection: 'column',
@@ -196,7 +225,7 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab }) => {
           className="glass-panel" 
           style={{ 
             gridColumn: 'span 5', 
-            padding: '30px', 
+            padding: 'clamp(16px, 4vw, 30px)', 
             borderLeft: '4px solid var(--color-primary)',
             display: 'flex',
             flexDirection: 'column',
@@ -237,7 +266,7 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab }) => {
           className="glass-panel" 
           style={{ 
             gridColumn: 'span 7', 
-            padding: '30px', 
+            padding: 'clamp(16px, 4vw, 30px)', 
             display: 'flex',
             flexDirection: 'column',
           }}
@@ -281,6 +310,151 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab }) => {
           </button>
         </TiltedCard>
       </div>
+
+      {/* Scrollable Fixed Contact/Navigation Side Panel on Desktop */}
+      {isDesktop && (
+        <div 
+          className="glass-panel"
+          style={{
+            position: 'fixed',
+            top: '120px',
+            right: scrolled ? '24px' : '-450px',
+            width: '340px',
+            maxHeight: 'calc(100vh - 160px)',
+            background: 'var(--bg-card-gradient)',
+            backdropFilter: 'blur(16px)',
+            WebkitBackdropFilter: 'blur(16px)',
+            border: '1px solid var(--border-color)',
+            borderRadius: '20px',
+            boxShadow: scrolled ? 'var(--shadow-navbar)' : 'none',
+            zIndex: 90,
+            padding: '24px',
+            opacity: scrolled ? 1 : 0,
+            pointerEvents: scrolled ? 'auto' : 'none',
+            transition: 'all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1)',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '20px',
+            overflowY: 'auto'
+          }}
+        >
+          {/* Header section with smaller profile image */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '16px', borderBottom: '1px solid var(--border-color)', paddingBottom: '16px' }}>
+            <div 
+              className="profile-glow"
+              style={{
+                width: '60px',
+                height: '60px',
+                borderRadius: '50%',
+                overflow: 'hidden',
+                border: '2px solid var(--color-primary)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexShrink: 0
+              }}
+            >
+              <img 
+                src="/profile.jpeg" 
+                alt="Alvin Jomon" 
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
+            </div>
+            <div>
+              <h3 style={{ color: 'var(--text-bright)', fontSize: '18px', fontWeight: 600, margin: 0 }}>Alvin Jomon</h3>
+              <span style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', color: 'var(--color-primary)' }}>SECURE_DOSSIER_SYS</span>
+            </div>
+          </div>
+
+          {/* Contact details */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            <div style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+              Contact Information
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <Mail size={16} style={{ color: 'var(--color-primary)' }} />
+              <a href="mailto:alvinthadathil1@gmail.com" style={{ fontSize: '13px', color: 'var(--text-bright)', textDecoration: 'none', wordBreak: 'break-all' }}>
+                alvinthadathil1@gmail.com
+              </a>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <Phone size={16} style={{ color: 'var(--color-secondary)' }} />
+              <a href="tel:9656819732" style={{ fontSize: '13px', color: 'var(--text-bright)', textDecoration: 'none' }}>
+                9656819732
+              </a>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <MapPin size={16} style={{ color: 'var(--color-accent)' }} />
+              <span style={{ fontSize: '13px', color: 'var(--text-main)' }}>Kottayam, Kerala, India</span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                width="16" 
+                height="16" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="#e1306c" 
+                strokeWidth="2" 
+                strokeLinecap="round" 
+                strokeLinejoin="round"
+              >
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+              </svg>
+              <a href="https://instagram.com/alvinthadathil" target="_blank" rel="noreferrer" style={{ fontSize: '13px', color: 'var(--text-bright)', textDecoration: 'none' }}>
+                @alvinthadathil
+              </a>
+            </div>
+          </div>
+
+          {/* Page Navigation Links */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginTop: '10px', borderTop: '1px solid var(--border-color)', paddingTop: '16px' }}>
+            <div style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '4px' }}>
+              Navigate to File Vaults
+            </div>
+            {[
+              { id: 'pmvikas', label: 'PM VIKAS IoT Trainee', color: 'var(--color-secondary)' },
+              { id: 'projects', label: 'Technical Showcase', color: 'var(--color-primary)' },
+              { id: 'skills', label: 'Credentials Vault', color: 'var(--color-accent)' },
+              { id: 'setup', label: 'Custom Rig & OS', color: '#ff9900' }
+            ].map((link) => (
+              <div 
+                key={link.id}
+                onClick={() => setActiveTab(link.id)}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  padding: '8px 12px',
+                  background: 'rgba(255,255,255,0.02)',
+                  border: '1px solid rgba(255,255,255,0.05)',
+                  borderRadius: '8px',
+                  cursor: 'pointer',
+                  fontSize: '13px',
+                  fontWeight: 500,
+                  color: 'var(--text-bright)',
+                  transition: 'all 0.2s ease',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = link.color;
+                  e.currentTarget.style.background = 'rgba(255,255,255,0.05)';
+                  e.currentTarget.style.color = link.color;
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.05)';
+                  e.currentTarget.style.background = 'rgba(255,255,255,0.02)';
+                  e.currentTarget.style.color = 'var(--text-bright)';
+                }}
+              >
+                <span>{link.label}</span>
+                <span style={{ fontSize: '11px', fontFamily: 'var(--font-mono)' }}>[OPEN]</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 };

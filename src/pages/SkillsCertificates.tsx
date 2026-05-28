@@ -134,7 +134,7 @@ export const SkillsCertificates: React.FC = () => {
       <div 
         style={{ 
           display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))', 
           gap: '24px', 
           marginBottom: '50px' 
         }}
@@ -215,7 +215,7 @@ export const SkillsCertificates: React.FC = () => {
       <div 
         style={{ 
           display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(270px, 1fr))', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(270px, 100%), 1fr))', 
           gap: '24px' 
         }}
       >
@@ -279,7 +279,8 @@ export const SkillsCertificates: React.FC = () => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            padding: '24px'
+            padding: '16px',
+            overflowY: 'auto'
           }}
         >
           <div 
@@ -287,6 +288,8 @@ export const SkillsCertificates: React.FC = () => {
             style={{
               width: '100%',
               maxWidth: '550px',
+              maxHeight: '90vh',
+              overflowY: 'auto',
               padding: '30px',
               border: `1px solid ${selectedCert.color}`,
               boxShadow: `0 0 40px ${selectedCert.color}20`,
