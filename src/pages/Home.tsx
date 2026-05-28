@@ -1,39 +1,27 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import DecryptedText from '../components/DecryptedText';
 import { TiltedCard } from '../components/TiltedCard';
-import { Shield, Cpu, Award, ArrowUpRight, Terminal, Globe, MapPin, Mail, Phone } from 'lucide-react';
+import { Shield, Cpu, Award, ArrowUpRight, Terminal, Globe, MapPin, Mail, Phone, Sliders } from 'lucide-react';
 
 interface HomeProps {
   setActiveTab: (tab: string) => void;
+  scrolled: boolean;
+  isDesktop: boolean;
 }
 
-export const Home: React.FC<HomeProps> = ({ setActiveTab }) => {
-  const [scrolled, setScrolled] = useState(false);
-  const [isDesktop, setIsDesktop] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsDesktop(window.innerWidth > 900);
-    };
-    const handleScroll = () => {
-      if (window.scrollY > 120) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-    handleResize();
-    handleScroll();
-    window.addEventListener('resize', handleResize, { passive: true });
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => {
-      window.removeEventListener('resize', handleResize);
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
+export const Home: React.FC<HomeProps> = ({ setActiveTab, scrolled, isDesktop }) => {
   return (
-    <div className="container-cyber" style={{ animation: 'floatAnimation 10s ease-in-out infinite' }}>
+    <>
+      <div 
+        className="container-cyber" 
+        style={{ 
+          animation: 'floatAnimation 10s ease-in-out infinite',
+          transition: 'all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1)',
+          paddingLeft: '24px',
+          paddingRight: '24px',
+          maxWidth: '1200px'
+        }}
+      >
       {/* Terminal Title Header */}
       <div 
         style={{
@@ -59,8 +47,10 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab }) => {
             justifyContent: 'center',
             background: 'var(--bg-card)',
             // SCROLL TRANSITION FOR DESKTOP
-            transition: 'all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1)',
-            transform: (isDesktop && scrolled) ? 'scale(0.5) translateY(-50px)' : 'scale(1) translateY(0)',
+            transition: 'all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1)',
+            transform: (isDesktop && scrolled) 
+              ? 'translate(calc(-50vw - 116px), -60px) scale(0.46)' 
+              : 'translate(0, 0) scale(1)',
             opacity: (isDesktop && scrolled) ? 0 : 1,
             pointerEvents: (isDesktop && scrolled) ? 'none' : 'auto',
           }}
@@ -140,7 +130,7 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab }) => {
         <TiltedCard 
           className="glass-panel" 
           style={{ 
-            gridColumn: 'span 7', 
+            gridColumn: 'span 8', 
             padding: 'clamp(16px, 4vw, 30px)', 
             minHeight: '260px',
             display: 'flex',
@@ -182,8 +172,9 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab }) => {
         {/* Card 2: PM VIKAS Selected (Right Upper) */}
         <TiltedCard 
           className="glass-panel" 
+          onClick={() => setActiveTab('pmvikas')}
           style={{ 
-            gridColumn: 'span 5', 
+            gridColumn: 'span 4', 
             padding: 'clamp(16px, 4vw, 30px)', 
             borderLeft: '4px solid var(--color-secondary)',
             display: 'flex',
@@ -202,7 +193,10 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab }) => {
           </div>
 
           <button 
-            onClick={() => setActiveTab('pmvikas')}
+            onClick={(e) => {
+              e.stopPropagation();
+              setActiveTab('pmvikas');
+            }}
             style={{ 
               background: 'none', 
               border: 'none', 
@@ -223,8 +217,9 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab }) => {
         {/* Card 3: Main Project - CyberSim (Left Lower) */}
         <TiltedCard 
           className="glass-panel" 
+          onClick={() => setActiveTab('projects')}
           style={{ 
-            gridColumn: 'span 5', 
+            gridColumn: 'span 4', 
             padding: 'clamp(16px, 4vw, 30px)', 
             borderLeft: '4px solid var(--color-primary)',
             display: 'flex',
@@ -243,7 +238,10 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab }) => {
           </div>
 
           <button 
-            onClick={() => setActiveTab('projects')}
+            onClick={(e) => {
+              e.stopPropagation();
+              setActiveTab('projects');
+            }}
             style={{ 
               background: 'none', 
               border: 'none', 
@@ -264,9 +262,11 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab }) => {
         {/* Card 4: Verified Credentials Summary (Right Lower Large) */}
         <TiltedCard 
           className="glass-panel" 
+          onClick={() => setActiveTab('skills')}
           style={{ 
-            gridColumn: 'span 7', 
+            gridColumn: 'span 4', 
             padding: 'clamp(16px, 4vw, 30px)', 
+            borderLeft: '4px solid var(--color-accent)',
             display: 'flex',
             flexDirection: 'column',
           }}
@@ -292,7 +292,10 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab }) => {
           </div>
 
           <button 
-            onClick={() => setActiveTab('skills')}
+            onClick={(e) => {
+              e.stopPropagation();
+              setActiveTab('skills');
+            }}
             style={{ 
               background: 'none', 
               border: 'none', 
@@ -309,33 +312,85 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab }) => {
             Launch Credentials Vault <ArrowUpRight size={16} />
           </button>
         </TiltedCard>
-      </div>
 
-      {/* Scrollable Fixed Contact/Navigation Side Panel on Desktop */}
+        {/* Card 5: Custom Rig & OS */}
+        <TiltedCard 
+          className="glass-panel" 
+          onClick={() => setActiveTab('setup')}
+          style={{ 
+            gridColumn: 'span 4', 
+            padding: 'clamp(16px, 4vw, 30px)', 
+            borderLeft: '4px solid #ff9900',
+            display: 'flex',
+            flexDirection: 'column',
+          }}
+        >
+          <div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+              <Sliders size={24} style={{ color: '#ff9900' }} />
+              <div className="tag-cyber" style={{ background: 'rgba(255, 153, 0, 0.08)', borderColor: 'rgba(255, 153, 0, 0.2)', color: '#ff9900' }}>ARCH / HYPR</div>
+            </div>
+            <h2 style={{ color: 'var(--text-bright)', fontSize: '22px', marginTop: '16px' }}>Custom Rig & OS</h2>
+            <p style={{ fontSize: '14px', marginTop: '8px', color: 'var(--text-main)' }}>
+              Deep dive into my personal workspace setup, operating system customization, and hardware development rig specs.
+            </p>
+          </div>
+
+          <button 
+            onClick={(e) => {
+              e.stopPropagation();
+              setActiveTab('setup');
+            }}
+            style={{ 
+              background: 'none', 
+              border: 'none', 
+              color: '#ff9900', 
+              display: 'flex', 
+              alignItems: 'center', 
+              gap: '6px', 
+              fontSize: '14px', 
+              fontWeight: 600,
+              cursor: 'pointer',
+              marginTop: '16px',
+            }}
+          >
+            Inspect Configuration <ArrowUpRight size={16} />
+          </button>
+        </TiltedCard>
+      </div>
+    </div>
+
+    {/* Locked Fixed Contact/Navigation Side Panel on Desktop */}
       {isDesktop && (
         <div 
           className="glass-panel"
           style={{
             position: 'fixed',
-            top: '120px',
-            right: scrolled ? '24px' : '-450px',
-            width: '340px',
-            maxHeight: 'calc(100vh - 160px)',
+            top: '0px',
+            left: scrolled ? '0px' : '-320px',
+            width: '320px',
+            height: '100vh',
+            maxHeight: '100vh',
             background: 'var(--bg-card-gradient)',
             backdropFilter: 'blur(16px)',
             WebkitBackdropFilter: 'blur(16px)',
-            border: '1px solid var(--border-color)',
-            borderRadius: '20px',
+            border: 'none',
+            borderRight: '1px solid var(--border-color)',
+            borderTopLeftRadius: '0px',
+            borderBottomLeftRadius: '0px',
+            borderTopRightRadius: '24px',
+            borderBottomRightRadius: '24px',
             boxShadow: scrolled ? 'var(--shadow-navbar)' : 'none',
-            zIndex: 90,
-            padding: '24px',
+            zIndex: 95,
+            padding: '30px 24px',
             opacity: scrolled ? 1 : 0,
             pointerEvents: scrolled ? 'auto' : 'none',
             transition: 'all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1)',
             display: 'flex',
             flexDirection: 'column',
-            gap: '20px',
-            overflowY: 'auto'
+            justifyContent: 'center',
+            gap: '32px',
+            overflow: 'hidden'
           }}
         >
           {/* Header section with smaller profile image */}
@@ -455,7 +510,7 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab }) => {
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
 

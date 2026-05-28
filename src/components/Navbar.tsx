@@ -44,6 +44,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, theme, 
       >
         {/* Glowing Logo */}
         <div 
+          className="nav-logo"
           onClick={() => setActiveTab('home')}
           style={{
             fontWeight: 700,
@@ -71,6 +72,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, theme, 
             return (
               <button
                 key={item.id}
+                className="nav-tab-btn"
                 onClick={() => setActiveTab(item.id)}
                 style={{
                   display: 'flex',
@@ -103,6 +105,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, theme, 
 
         {/* Theme Toggle Button */}
         <button
+          className="nav-theme-toggle"
           onClick={toggleTheme}
           style={{
             background: 'none',
@@ -129,12 +132,70 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, theme, 
 
       {/* Embedded Mobile CSS */}
       <style>{`
+        .nav-logo {
+          transition: all 0.2s ease;
+        }
+        .nav-tab-btn {
+          transition: all 0.2s ease;
+        }
+        .nav-theme-toggle {
+          transition: all 0.2s ease;
+        }
+        
+        @media (max-width: 768px) {
+          .nav-tab-btn {
+            padding: 8px 12px !important;
+            gap: 6px !important;
+          }
+        }
+
         @media (max-width: 600px) {
           .nav-label {
             display: none !important;
           }
           nav {
-            padding: 8px 12px !important;
+            padding: 6px 12px !important;
+            gap: 8px !important;
+          }
+          .nav-logo {
+            font-size: 14px !important;
+            padding-right: 8px !important;
+          }
+          .nav-tab-btn {
+            padding: 6px 10px !important;
+            gap: 0px !important;
+          }
+          .nav-theme-toggle {
+            padding: 6px !important;
+            margin-left: 4px !important;
+            padding-left: 12px !important;
+          }
+        }
+
+        @media (max-width: 400px) {
+          nav {
+            padding: 4px 8px !important;
+            gap: 4px !important;
+          }
+          .nav-logo {
+            font-size: 12px !important;
+            padding-right: 6px !important;
+            letter-spacing: 0.5px !important;
+          }
+          .nav-logo span {
+            font-size: 10px !important;
+          }
+          .nav-tab-btn {
+            padding: 4px 6px !important;
+          }
+          .nav-tab-btn svg, .nav-theme-toggle svg {
+            width: 14px !important;
+            height: 14px !important;
+          }
+          .nav-theme-toggle {
+            padding: 4px !important;
+            margin-left: 2px !important;
+            padding-left: 8px !important;
           }
         }
       `}</style>

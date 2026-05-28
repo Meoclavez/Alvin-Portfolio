@@ -15,10 +15,34 @@ function App() {
     return 'dark';
   });
 
+  const [scrolled, setScrolled] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
+
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('app-theme', theme);
   }, [theme]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth > 900);
+    };
+    const handleScroll = () => {
+      if (activeTab === 'home' && window.scrollY > 120) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+    handleResize();
+    handleScroll();
+    window.addEventListener('resize', handleResize, { passive: true });
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [activeTab]);
 
   const toggleTheme = () => {
     setTheme(prev => prev === 'dark' ? 'light' : 'dark');
@@ -27,7 +51,7 @@ function App() {
   const renderContent = () => {
     switch (activeTab) {
       case 'home':
-        return <Home setActiveTab={setActiveTab} />;
+        return <Home setActiveTab={setActiveTab} scrolled={scrolled} isDesktop={isDesktop} />;
       case 'pmvikas':
         return <PmVikas />;
       case 'projects':
@@ -37,9 +61,11 @@ function App() {
       case 'setup':
         return <DesktopSetup />;
       default:
-        return <Home setActiveTab={setActiveTab} />;
+        return <Home setActiveTab={setActiveTab} scrolled={scrolled} isDesktop={isDesktop} />;
     }
   };
+
+  const isShifted = activeTab === 'home' && isDesktop && scrolled;
 
   return (
     <>
@@ -47,10 +73,29 @@ function App() {
       <InteractiveBackground />
 
       {/* Floating Responsive Navigation menu */}
-      <Navbar activeTab={activeTab} setActiveTab={setActiveTab} theme={theme} toggleTheme={toggleTheme} />
+      <div 
+        style={{ 
+          transition: 'all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1)', 
+          paddingLeft: isShifted ? '340px' : '0px' 
+        }}
+      >
+        <Navbar 
+          activeTab={activeTab} 
+          setActiveTab={setActiveTab} 
+          theme={theme} 
+          toggleTheme={toggleTheme} 
+        />
+      </div>
 
       {/* Main Panel views */}
-      <main style={{ flex: 1, paddingBottom: '60px' }}>
+      <main 
+        style={{ 
+          flex: 1, 
+          paddingBottom: '60px', 
+          transition: 'all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1)', 
+          paddingLeft: isShifted ? '340px' : '0px' 
+        }}
+      >
         {renderContent()}
       </main>
 
@@ -63,6 +108,8 @@ function App() {
           color: 'var(--text-muted)',
           borderTop: '1px solid var(--border-color)',
           background: 'var(--bg-card)',
+          transition: 'all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1)',
+          paddingLeft: isShifted ? '364px' : '24px',
         }}
       >
         <div>
